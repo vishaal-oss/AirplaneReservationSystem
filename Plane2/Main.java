@@ -51,7 +51,6 @@ public class Main {
 
                         if (bookSeat(selectedFlight, passenger)) {
                             System.out.println("Booking successful!");
-                            // Refresh flight list after booking
                             flights = fetchFlightsFromDatabase();
                         } else {
                             System.out.println("No available seats on this flight.");
@@ -93,8 +92,6 @@ public class Main {
         }
         return flights;
     }
-
-    // ✅ New booking method – works with total_seats only
     public static boolean bookSeat(Flight flight, Passenger passenger) {
         String checkSeatsQuery = "SELECT total_seats FROM flights WHERE flight_number = ?";
         String updateSeatsQuery = "UPDATE flights SET total_seats = total_seats - 1 WHERE flight_number = ? AND total_seats > 0";
@@ -135,3 +132,4 @@ public class Main {
         }
     }
 }
+
