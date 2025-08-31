@@ -13,10 +13,11 @@ public class db {
             Class.forName("com.mysql.cj.jdbc.Driver");
             return DriverManager.getConnection(URL, USER, PASSWORD);
         } catch (ClassNotFoundException e) {
-            throw new SQLException("❌ JDBC Driver not found: " + e.getMessage());
+            throw new SQLException(" JDBC Driver not found: " + e.getMessage());
         } catch (SQLException e) {
-            throw new SQLException("❌ Database connection failed: " + e.getMessage());
+            throw new SQLException(" Database connection failed: " + e.getMessage());
         }
     }
 }
+
 
